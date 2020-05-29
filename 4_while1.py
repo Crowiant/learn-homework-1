@@ -11,10 +11,9 @@
 
 
 def ask_user():
-    """
-    Замените pass на ваш код
-    """
-    pass
+    console_input = ''
+    while console_input != 'Хорошо':
+        console_input = input('Как дела? \n')
 
     
 if __name__ == "__main__":
