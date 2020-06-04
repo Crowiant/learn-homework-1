@@ -17,7 +17,9 @@
 
 def main():
     result = ''
-    age = abs(int(input('Введите возраст пользователя: ')))
+    age = int(input('Введите возраст пользователя: '))
+    if age < 0:
+        result = 'Возраст не может быть отрицательным'
     if 65 > age >= 23:
         result = 'Скорее всего пользователь работает'
     elif 23 > age >= 18:
@@ -28,8 +30,8 @@ def main():
         result = 'Скорее всего пользователь ходит в детский сад'
     else:
         result = 'Неизвестно что делает пользователь в этом возрасте'
-    return print(result)
+    return result
 
 
 if __name__ == "__main__":
-    main()
+    print(main())

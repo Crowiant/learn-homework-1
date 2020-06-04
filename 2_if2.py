@@ -15,15 +15,17 @@
 
 """
 
+
 def main(first_str: str, second_str: str):
-    if type(first_str) is not str and type(second_str) is not str:
-        return print(0)
+    if not isinstance(first_str, str) and not isinstance(second_str, str):
+        return 0
     elif first_str is not second_str and second_str == 'learn':
-        return print(3)
+        return 3
     elif first_str is not second_str and len(first_str) > len(second_str):
-        return print(2)
-    
+        return 2
+
+
 if __name__ == "__main__":
-    main(1,2)
-    main('gun', 'gun')
-    main('easy', 'learn')
+    print(main(1,2))
+    print(main('gun', 'gun'))
+    print(main('easy', 'learn'))

@@ -44,26 +44,24 @@ def talk_to_me(bot, update):
 
 
 def find_planet_place(update, context):
+    planet_dict = {
+        'Mars': ephem.Mars,
+        'Jupiter': ephem.Jupiter,
+        'Mercury': ephem.Mercury,
+        'Venus': ephem.Venus,
+        'Saturn': ephem.Saturn,
+        'Uranus': ephem.Uranus,
+        'Neptune': ephem.Neptune,
+    }
     dt_now = ephem.now()
     get_planet = update.message.text.split()
-    if get_planet[1] == 'Mars':
-        planet_name = ephem.Mars(dt_now)
-    if get_planet[1] == 'Jupiter':
-        planet_name = ephem.Jupiter(dt_now)
-    if get_planet[1] == 'Mercury':
-        planet_name = ephem.Mercury(dt_now)
-    if get_planet[1] == 'Venus':
-        planet_name = ephem.Venus(dt_now)
-    if get_planet[1] == 'Saturn':
-        planet_name = ephem.Saturn(dt_now)
-    if get_planet[1] == 'Uranus':
-        planet_name = ephem.Uranus(dt_now)
-    if get_planet[1] == 'Neptune':
-        planet_name = ephem.Neptune(dt_now)
+    if planet_dict.get(get_planet[1]):
+        planet_name = planet_dict.get(get_planet[1])
+        planet_name = planet_name(dt_now)
+        planet_constellation = ephem.constellation(planet_name)
+        update.message.reply_text(planet_constellation[1])
     else:
         update.message.reply_text('Про этот объект я ничего не знаю')
-    planet_constellation = ephem.constellation(planet_name)
-    update.message.reply_text(planet_constellation[1])
 
 
 def main():

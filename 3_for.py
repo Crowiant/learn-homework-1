@@ -31,14 +31,14 @@ def school_average(school: list):
     for list_of_scores in school:
         result += (sum(list_of_scores['score']) / len(list_of_scores['score']))
     result = result / len(school)
-    print('Average mark of school is:', '%.2f' % result)
+    print('Average mark of school is:', f'{result:.2f}')
 
 
 def class_average(school: list):
     result = 0
     for list_of_scores in school:
         result = sum(list_of_scores['score']) / len(list_of_scores['score'])
-        print('Average for class ', list_of_scores['school_class'], 'is:', '%.2f' % result)
+        print('Average for class ', list_of_scores['school_class'], 'is:', f'{result:.2f}')
 
 
 def main(school: list):

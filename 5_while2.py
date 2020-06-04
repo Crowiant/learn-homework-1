@@ -27,8 +27,9 @@ def ask_user(answers: dict):
     console_input = ''
     while console_input != 'Пока':
         console_input = input('Введите вопрос: ')
-        if answers.get(console_input):
-            print(answers.get(console_input))
+        check_answers = answers.get(console_input)
+        if check_answers:
+            print(check_answers)
         elif console_input != 'Пока':
             print('Я затрудняюсь ответить на вопрос')
 
